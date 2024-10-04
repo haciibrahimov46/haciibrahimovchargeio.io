@@ -1,0 +1,137 @@
+/* Temel ayarlar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body ayarları */
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  height: 400vh;
+}
+
+/* Header bölümü */
+header {
+  display: flex;
+  justify-content: space-between; /* Sol, orta ve sağ bölümleri ayır */
+  align-items: center; /* Dikey olarak ortala */
+  background-color: black; /* Arka plan rengini korudum */
+  padding: 10px 20px; /* İçeride biraz boşluk bırak */
+  border-bottom: 2px solid white; /* Alt kenarlık (border) kalınlığını azalttım */
+  border-radius: 30px; /* Header'a köşe yuvarlama (border-radius) ekledim */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Daha ince ve gerçekçi gölge efekti */
+}
+
+/* Logo bölümü */
+.logo img {
+  width: auto; /* Genişliği otomatik yap */
+  height: 60px; /* Yüksekliği artırdım */
+}
+
+/* Ortadaki menü simgesi */
+.menu-icon {
+  display: none; /* Varsayılan olarak gizli */
+  font-size: 30px; /* İkon boyutu */
+  color: white; /* İkon rengi beyaz */
+  cursor: pointer; /* İkonun üzerine gelince fareyi göster */
+}
+
+/* Ortadaki linkler */
+.header-center ul {
+  display: flex; /* Linkleri yatay olarak göster */
+  list-style: none; /* Noktaları kaldır */
+}
+
+.header-center ul li {
+  margin: 0 15px; /* Linklerin arasına boşluk ekle */
+}
+
+.header-center ul li a {
+  color: white; /* Yazı rengini beyaz yap */
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  font-size: 18px;
+  transition: color 0.3s; /* Renk geçişi için animasyon ekle */
+}
+
+.header-center ul li a:hover {
+  text-decoration: underline; /* Üzerine gelince altı çizilsin */
+  color: #AD49E1; /* Üzerine gelince renk değiştir */
+}
+
+/* Sağdaki menü simgeleri */
+.header-right {
+  display: flex; /* Sağdaki elemanları yan yana diz */
+  align-items: center; /* Dikey ortala */
+}
+
+/* Mağaza simgeleri */
+.store-icon {
+  color: #ffffff; /* İkon rengi beyaz */
+  font-size: 30px; /* İkon boyutu */
+  margin-left: 10px; /* İkonlar arasında boşluk */
+  transition: transform 0.3s; /* Hover efektleri için geçiş */
+}
+
+.store-icon:hover {
+  transform: scale(1.1); /* Üzerine gelince büyütme efekti */
+}
+
+/* Medya sorgusu: Mobil cihazlar için */
+@media (max-width: 768px) {
+  .header-center ul {
+    display: none; /* Mobilde menü gizli */
+  }
+
+  .menu-icon {
+    display: block; /* Mobilde menü ikonunu göster */
+  }
+
+  /* Menüyü gizlemek için başlangıç ayarları */
+  #menu-list {
+    display: none; /* Varsayılan olarak gizli */
+    position: absolute; /* Üst üste yerleştir */
+    top: 60px; /* İkonun hemen altında görünmesi için */
+    left: 50%; /* Ortaya yerleştir */
+    transform: translateX(-50%); /* Gerçekten ortada görünmesi için kaydır */
+    background-color: black; /* Arka plan rengini koru */
+    border-radius: 0 0 30px 30px; /* Alt köşeleri yuvarla */
+    z-index: 1; /* Diğer elemanların üstünde görün */
+  }
+
+  #menu-list.active {
+    display: block; /* Aktif olduğunda göster */
+    animation: slideDown 0.3s ease-in-out; /* Aşağıya kayma animasyonu */
+  }
+
+  @keyframes slideDown {
+    from {
+      max-height: 0; /* İlk durumda yükseklik sıfır */
+      opacity: 0; /* İlk durumda saydam */
+    }
+    to {
+      max-height: 200px; /* Son durumda maksimum yükseklik */
+      opacity: 1; /* Son durumda opaklık */
+    }
+  }
+
+  /* Liste elemanları ayarları */
+  #menu-list li {
+    display: block; /* Her bir liste elemanını blok yap */
+    text-align: center; /* Metni ortala */
+    padding: 10px 0; /* Yukarıdan ve aşağıdan boşluk bırak */
+  }
+
+  #menu-list li a {
+    color: white; /* Yazı rengini beyaz yap */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    font-size: 18px;
+    transition: color 0.3s; /* Renk geçişi için animasyon ekle */
+  }
+
+  #menu-list li a:hover {
+    text-decoration: underline; /* Üzerine gelince altı çizilsin */
+    color: #AD49E1; /* Üzerine gelince renk değiştir */
+  }
+}
